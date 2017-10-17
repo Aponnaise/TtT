@@ -7,17 +7,17 @@ public class PlayerBahav : MonoBehaviour {
 
     public float superSpeed = 4f;
     public float speed = 20;
-    public Sprite Up;
-    public Sprite Right;
-    public Sprite Down;
-    public Sprite Left;
-    public Sprite UpLeft;
-    public Sprite UpRight;
-    public Sprite DownRight;
-    public Sprite DownLeft;
-    Vector2 position1 = new Vector2(0,0);
-    Vector2 position2;
-    float directionX;
+    public Sprite Up;        
+    public Sprite Right;    
+    public Sprite Down;      
+    public Sprite Left;      
+    public Sprite UpLeft;    
+    public Sprite UpRight;   
+    public Sprite DownRight; 
+    public Sprite DownLeft;  
+    Vector2 position1 = new Vector2(0,0);  
+    Vector2 position2; 
+    float directionX; 
     float directionY;
     string spriteHelp;
     bool isSuperSpeed = false;
@@ -26,14 +26,14 @@ public class PlayerBahav : MonoBehaviour {
         Vector2 moveVec = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"), CrossPlatformInputManager.GetAxis("Vertical"));
         if(!isSuperSpeed) {
             isSuperSpeed = CrossPlatformInputManager.GetButtonDown("BuSuperSpeed");
-            GetComponent<Rigidbody2D>().velocity = moveVec.normalized * speed;
+            GetComponent<Rigidbody2D>().velocity = moveVec.normalized * speed; 
         } else {
-            GetComponent<Rigidbody2D>().velocity = moveVec.normalized * speed;
+            GetComponent<Rigidbody2D>().velocity = moveVec.normalized * speed * superSpeed; 
             if(CrossPlatformInputManager.GetButtonUp("BuSuperSpeed")) isSuperSpeed = false;
         }
         
         position2 = transform.position;
-        directionX = position2.x - position1.x;
+        directionX = position2.x - position1.x; 
         directionY = position2.y - position1.y;
         GetComponent<Animator>().enabled = true;
        
